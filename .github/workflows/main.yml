@@ -29,11 +29,9 @@ jobs:
 
       - name: SonarCloud analysis
         working-directory: simple-api
-        run: mvn -B verify sonar:sonar \
-          -Dsonar.projectKey=Olivier-300_DevOpsandMLOpsDockerOlivier2 \
-          -Dsonar.organization=efrei-devops-2025 \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn -B verify sonar:sonar -Dsonar.projectKey=Olivier-300_DevOpsandMLOpsDockerOlivier2 -Dsonar.organization=efrei-devops-2025 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
 
 
   build-and-push-docker-image:
